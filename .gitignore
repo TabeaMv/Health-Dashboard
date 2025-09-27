@@ -1,3 +1,4 @@
 tokens.json
 fitbit-env/
 __pycache__/
+.env
