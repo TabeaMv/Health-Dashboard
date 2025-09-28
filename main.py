@@ -74,11 +74,11 @@ class FitBitClient():
             "client_id": self.client_id,
             "grant_type": "authorization_code"
         }
-        client_ident = HTTPBasicAuth(self.client_id, self.client_secret)
+        client_auth = HTTPBasicAuth(self.client_id, self.client_secret)
         # send api request for the initial access/refresh token pair
         api_response = requests.post("https://api.fitbit.com/oauth2/token",
                                      data=payload,
-                                     auth=client_ident)
+                                     auth=client_auth)
         # check api response for successful retrieval of the tokens
         if api_response.status_code==200:
             with open(self.tokens_filepath, "w") as f:
@@ -94,7 +94,19 @@ class FitBitClient():
 
     def load_tokens(self):
         '''loads current access/refresh tokens and user_id from tokens.json'''
-        pass
+        try:
+            with open(self.tokens_filepath, "r") as f:
+                d = json.load(f)
+                self.access_token, self.refresh_token = d["access_token"], d["refresh_token"]
+                self.user_id = d["user_id"]
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                f"Token file '{self.tokens_filepath}' not found."
+            )
+        except KeyError as e:
+            raise KeyError(
+                f"Missing key in token file: {e}. Check file content."
+            )
 
 
     def get_valid_access_token(self):
@@ -102,16 +114,60 @@ class FitBitClient():
         Checks if access token is still valid.
         If token is outdated, requests new access/refresh token pair.
         '''
-        pass
+        payload = {
+            "grant_type": "refresh_token",
+            "refresh_token": self.refresh_token,
+            "client_id": self.client_id
+        }
+        client_auth = HTTPBasicAuth(self.client_id, self.client_secret)
+        api_response = requests.post("https://api.fitbit.com/oauth2/token",
+                                     data=payload,
+                                     auth=client_auth)
+        if api_response.ok:
+            with open(self.tokens_filepath, "w") as f:
+                    response = api_response.json()
+                    json.dump(response, f, indent=4)
+            self.access_token = response["access_token"]
+            self.refresh_token = response["refresh_token"]
+        else:
+            raise RuntimeError(
+                f"Failed to refresh token pair (HTTP \
+                    {api_response.status_code}): {api_response.text}"
+            )
 
 
-# with open("tokens.json") as f:
-#     d = json.load(f)
-#     access_token, refresh_token = d["access_token"], d["refresh_token"]
+    def data_access(self):
+        # send api request for information
+        # if access token valid: response should be OK and information
+        # if access token not valid, call get_valid_access_token method
+        '''
+        Makes API request.
+        If access token is valid: access user information.
+        If access token is invalid: get new token pair, then access user information.
+        '''
+        for _ in range(2): # 1. try + max. one token refresh
+            request_header = {"Authorization": f"Bearer {self.access_token}"}
+            api_response = requests.get("https://api.fitbit.com/1/user/-/profile.json",
+                                    headers=request_header)
+            if api_response.ok:
+                print("API access successful.")
+                print(api_response.json())
+                return api_response.json()
+            elif api_response.status_code == 401:
+                print("Token pair invalid. Refreshing...")
+                self.get_valid_access_token()
+            else:
+                break
+        raise RuntimeError(
+                f"API call failed even after refreshing token pair \
+                    (HTTP {api_response.status_code}): {api_response.text}"
+            )
 
 
 def main():
     tabea_fitbit = FitBitClient.from_file()
+    # tabea_fitbit = FitBitClient.from_auth_code()
+    tabea_fitbit.data_access()
 
 
 if __name__=='__main__':
