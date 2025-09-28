@@ -150,7 +150,7 @@ class FitBitClient():
         If access token is invalid: get new token pair, then access user information.
         '''
         for _ in range(2): # 1. try + max. one token refresh
-            request_header = {"Authorization": f"Bearer {self.access_token}"}
+            request_header = {"Authorization": f"Bearer {self.access_token}", "accept-language": "de_DE"}
             api_response = requests.get("https://api.fitbit.com/1/user/-/profile.json",
                                     headers=request_header)
             if api_response.ok:
@@ -166,7 +166,7 @@ class FitBitClient():
                 f"API call failed even after refreshing token pair \
                     (HTTP {api_response.status_code}): {api_response.text}"
             )
-
+    
 
 def main():
     tabea_fitbit = FitBitClient.from_file()
