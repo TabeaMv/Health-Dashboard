@@ -3,19 +3,23 @@ This module manages the fitbit API requests.
 It handles the OAuth 2.0 authentification process and grants access to user data.
 """
 __author__ = "Tabea Maxine Merlevede"
-__credits__ = ""
 __email__ = "tabea.merlevede@gmail.com"
 
 # standard library imports
 import os
 import json
 from pathlib import Path
+import logging
 
 # related third party imports
 import requests
 from requests.auth import HTTPBasicAuth
 from dotenv import load_dotenv
 
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s",
+                    filename="fitbit.log",
+                    filemode="a")
 
 class FitBitClient():
     '''Manages Fitbit API authentification and stores client and token information.'''
@@ -59,6 +63,16 @@ class FitBitClient():
         self.client_secret = os.getenv("CLIENT_SECRET")
 
 
+    def save_tokens(self, token_pair):
+        response = token_pair.json()
+        with open(self.tokens_filepath, "w") as f:
+                json.dump(response, f, indent=4)
+                logging.info("Token pair initialized and saved in 'tokens.json'.")
+        self.access_token = response["access_token"]
+        self.refresh_token = response["refresh_token"]
+        self.user_id = response["user_id"]
+
+
     def initialize_tokens(self):
         '''
         gets called if there is no existing token pair.
@@ -81,10 +95,7 @@ class FitBitClient():
                                      auth=client_auth)
         # check api response for successful retrieval of the tokens
         if api_response.status_code==200:
-            with open(self.tokens_filepath, "w") as f:
-                response = api_response.json()
-                json.dump(response, f, indent=4)
-                print("Token pair initialized and saved in 'tokens.json'.")
+            self.save_tokens(api_response)
         else:
             raise RuntimeError(
                 f"Failed to initialize tokens (HTTP {api_response.status_code}): "
@@ -124,11 +135,7 @@ class FitBitClient():
                                      data=payload,
                                      auth=client_auth)
         if api_response.ok:
-            with open(self.tokens_filepath, "w") as f:
-                    response = api_response.json()
-                    json.dump(response, f, indent=4)
-            self.access_token = response["access_token"]
-            self.refresh_token = response["refresh_token"]
+            self.save_tokens(api_response)
         else:
             raise RuntimeError(
                 f"Failed to refresh token pair (HTTP \
@@ -137,9 +144,6 @@ class FitBitClient():
 
 
     def data_access(self):
-        # send api request for information
-        # if access token valid: response should be OK and information
-        # if access token not valid, call get_valid_access_token method
         '''
         Makes API request.
         If access token is valid: access user information.
@@ -150,11 +154,11 @@ class FitBitClient():
             api_response = requests.get("https://api.fitbit.com/1/user/-/profile.json",
                                     headers=request_header)
             if api_response.ok:
-                print("API access successful.")
-                print(api_response.json())
+                logging.info("API access successful.")
+                logging.info(api_response.json())
                 return api_response.json()
             elif api_response.status_code == 401:
-                print("Token pair invalid. Refreshing...")
+                logging.info("Token pair invalid. Refreshing...")
                 self.get_valid_access_token()
             else:
                 break
