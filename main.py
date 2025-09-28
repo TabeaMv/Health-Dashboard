@@ -1,7 +1,6 @@
-"""This module manages the fitbit API requests.
-
-It is supposed to get the token pairs for the OAuth2.0 authentification
-process and grant access to the user data.
+"""
+This module manages the fitbit API requests.
+It handles the OAuth 2.0 authentification process and grants access to user data.
 """
 __author__ = "Tabea Maxine Merlevede"
 __credits__ = ""
@@ -19,23 +18,40 @@ from dotenv import load_dotenv
 
 
 class FitBitClient():
+    '''Manages Fitbit API authentification and stores client and token information.'''
 
-
-    def __init__(self, name="Tabea Merlevede"):
-        self.name = name
+    def __init__(self, tokens_filepath="tokens.json"):
         self.client_id = None
         self.client_secret = None
         self.access_token = None
         self.refresh_token = None
         self.user_id = None
-        self.tokens_filepath = Path("tokens.json")
+        self.tokens_filepath = Path(tokens_filepath)
         self.load_env()
-        if self.tokens_filepath.exists():
-            self.load_tokens()
-        else:
-            self.get_initial_tokens()
 
+
+
+    @classmethod
+    def from_file(cls):
+        """Factory: create client and load tokens from file"""
+        obj = cls()
+        obj.load_tokens()
+        return obj
     
+
+    @classmethod
+    def from_auth_code(cls):
+        """
+        Factory: initialize first access/refresh token pair.
+        User interaction necessary!
+        """
+        obj = cls()
+        obj.initialize_tokens()
+        obj.load_tokens()
+        return obj
+
+
+
     def load_env(self):
         '''loads information of client_id and client_secret from .env'''
         load_dotenv()
@@ -43,12 +59,11 @@ class FitBitClient():
         self.client_secret = os.getenv("CLIENT_SECRET")
 
 
-    def get_initial_tokens(self):
+    def initialize_tokens(self):
         '''
         gets called if there is no existing token pair.
         User needs to provide new authorization code.
         '''
-        load_dotenv()
         authorization_code = input("Please provide the authorization code that you received" \
                     "in the browser. More information on how to get the authorization code" \
                     "can be found in the ReadMe file of this project.")
@@ -60,17 +75,21 @@ class FitBitClient():
             "grant_type": "authorization_code"
         }
         client_ident = HTTPBasicAuth(self.client_id, self.client_secret)
+        # send api request for the initial access/refresh token pair
         api_response = requests.post("https://api.fitbit.com/oauth2/token",
                                      data=payload,
                                      auth=client_ident)
+        # check api response for successful retrieval of the tokens
         if api_response.status_code==200:
-            with open("tokens.json", "x") as f:
+            with open(self.tokens_filepath, "w") as f:
                 response = api_response.json()
                 json.dump(response, f, indent=4)
                 print("Token pair initialized and saved in 'tokens.json'.")
         else:
-            print(f"Error with the API request: {api_response.status_code}")
-            print(api_response.text)
+            raise RuntimeError(
+                f"Failed to initialize tokens (HTTP {api_response.status_code}): "
+                f"{api_response.text}"
+            )
 
 
     def load_tokens(self):
@@ -92,38 +111,8 @@ class FitBitClient():
 
 
 def main():
-    tabea_fitbit = FitBitClient()
+    tabea_fitbit = FitBitClient.from_file()
 
 
 if __name__=='__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-# from dotenv import load_dotenv
-# import os
-# from typing import Union
-# from fastapi import FastAPI
-
-# app = FastAPI()
-
-# @app.get("/")
-# def read_root():
-#     return {"Hello": "World"}
-
-
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
-
-# load_dotenv()
-# print("Das Client Secret heißt: "+str(os.getenv("CLIENT_SECRET")))
