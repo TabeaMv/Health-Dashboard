@@ -1,4 +1,5 @@
 tokens.json
+historical_data/
 fitbit-env/
 __pycache__/
 .env

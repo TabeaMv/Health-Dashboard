@@ -143,7 +143,7 @@ class FitBitClient():
             )
 
 
-    def data_access(self):
+    def data_access(self, endpoint, start, end):
         '''
         Makes API request.
         If access token is valid: access user information.
@@ -151,7 +151,7 @@ class FitBitClient():
         '''
         for _ in range(2): # 1. try + max. one token refresh
             request_header = {"Authorization": f"Bearer {self.access_token}", "accept-language": "de_DE"}
-            api_response = requests.get("https://api.fitbit.com/1/user/-/profile.json",
+            api_response = requests.get(f"https://api.fitbit.com/1/user/-/{endpoint}/date/{start}/{end}.json",
                                     headers=request_header)
             if api_response.ok:
                 logging.info("API access successful.")
@@ -169,9 +169,10 @@ class FitBitClient():
     
 
 def main():
-    tabea_fitbit = FitBitClient.from_file()
+    # tabea_fitbit = FitBitClient.from_file()
     # tabea_fitbit = FitBitClient.from_auth_code()
-    tabea_fitbit.data_access()
+    # tabea_fitbit.data_access()
+    pass
 
 
 if __name__=='__main__':
