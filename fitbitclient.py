@@ -17,7 +17,7 @@ from requests.auth import HTTPBasicAuth
 from dotenv import load_dotenv
 
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s",
+logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s: %(message)s",
                     filename="fitbit.log",
                     filemode="a")
 
@@ -149,10 +149,14 @@ class FitBitClient():
         If access token is valid: access user information.
         If access token is invalid: get new token pair, then access user information.
         '''
+        logging.info("accessing data...")
         for _ in range(2): # 1. try + max. one token refresh
             request_header = {"Authorization": f"Bearer {self.access_token}", "accept-language": "de_DE"}
-            api_response = requests.get(f"https://api.fitbit.com/1/user/-/{endpoint}/date/{start}/{end}.json",
-                                    headers=request_header)
+            params = {"afterDate": "2025-09-25", "sort": "asc", "limit": 100, "offset": 0}
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/{endpoint}/date/{start}/{end}.json",
+            #                         headers=request_header)
+            api_response = requests.get(f"https://api.fitbit.com/1/user/-/cardioscore/date/2025-09-20/today.json",
+                                        headers=request_header, params=params)
             if api_response.ok:
                 logging.info("API access successful.")
                 logging.info(api_response.json())

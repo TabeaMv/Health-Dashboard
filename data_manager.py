@@ -16,7 +16,9 @@ class DataManager(FitBitClient):
     #     if endpoint_path.exists():
     #         with open(endpoint_path, "r") as f:
     #             endpoint_data = json.load(f)
-    #         print(endpoint_data[-1]["date"])
+    #         return endpoint_data[-1]["date"]
+    #     else:
+    #         return "2024-01-01"
 
 
     def fetch_new_endpoint_data(self, endpoint_name, start_date, end_date):
@@ -33,10 +35,11 @@ def main():
     # tabea_fitbit = DataManager.from_auth_code()
     manager = DataManager(tabea_fitbit)
     # manager.fetch_historical_steps(date(2023, 11, 22), date.today())
-    # endpoints = ["activity", "heartrate", "location", "nutrition",
+    # endpoints = ["activity", "cardio_fitness", "heartrate", "location", "nutrition",
     #              "oxygen_saturation", "profile", "respiratory_rate",
     #              "settings", "sleep", "social", "temperature", "weight"]
-    manager.fetch_new_endpoint_data("sleep", "2025-09-01", "2025-09-08")
+    # start_date = manager.get_last_saved_date("sleep")
+    manager.fetch_new_endpoint_data("cardioscore", "2025-09-01", "2025-09-08")
 
 
 if __name__=='__main__':
