@@ -143,7 +143,8 @@ class FitBitClient():
             )
 
 
-    def data_access(self, endpoint, start, end):
+    # def data_access(self, endpoint, start, end):
+    def data_access(self):
         '''
         Makes API request.
         If access token is valid: access user information.
@@ -152,11 +153,26 @@ class FitBitClient():
         logging.info("accessing data...")
         for _ in range(2): # 1. try + max. one token refresh
             request_header = {"Authorization": f"Bearer {self.access_token}", "accept-language": "de_DE"}
-            params = {"afterDate": "2025-09-25", "sort": "asc", "limit": 100, "offset": 0}
+            # params = {"afterDate": "2025-09-25", "sort": "asc", "limit": 100, "offset": 0}
+            # params = {"afterDate": "2025-09-20", "sort": "asc", "limit": 3, "offset": 0}
             # api_response = requests.get(f"https://api.fitbit.com/1/user/-/{endpoint}/date/{start}/{end}.json",
             #                         headers=request_header)
-            api_response = requests.get(f"https://api.fitbit.com/1/user/-/cardioscore/date/2025-09-20/today.json",
-                                        headers=request_header, params=params)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/cardioscore/date/2025-01-20/2025-02-10.json",
+            #                             headers=request_header)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/activities/list.json",
+            #                             headers=request_header, params=params)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/activities/heart/date/2025-09-20/2025-09-20/5min.json",
+            #                             headers=request_header)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/spo2/date/2025-09-20/2025-10-13/all.json",
+            #                             headers=request_header)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/br/date/2025-09-20/2025-09-22/all.json",
+            #                             headers=request_header)
+            # api_response = requests.get(f"https://api.fitbit.com/1.2/user/-/sleep/list.json",
+            #                             headers=request_header, params=params)
+            # api_response = requests.get(f"https://api.fitbit.com/1/user/-/temp/skin/date/2025-09-20/2025-10-13.json",
+            #                             headers=request_header)
+            api_response = requests.get(f"https://api.fitbit.com/1/user/-/body/log/weight/date/2025-10-13.json",
+                                        headers=request_header)
             if api_response.ok:
                 logging.info("API access successful.")
                 logging.info(api_response.json())
@@ -173,10 +189,9 @@ class FitBitClient():
     
 
 def main():
-    # tabea_fitbit = FitBitClient.from_file()
+    tabea_fitbit = FitBitClient.from_file()
     # tabea_fitbit = FitBitClient.from_auth_code()
-    # tabea_fitbit.data_access()
-    pass
+    tabea_fitbit.data_access()
 
 
 if __name__=='__main__':

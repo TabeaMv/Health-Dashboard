@@ -1,0 +1,130 @@
+============================================================================= ACTIVITIES ====================================================================================
+
+2025-10-14 12:15:59,975: INFO: {'pagination': {'afterDate': '2025-09-25', 'limit': 100, 'next': '', 'offset': 0, 'previous': '', 'sort': 'asc'}, 
+'activities': [{'logId': 3483919763666824792, 'activityTypeId': 90013, 'activityName': 'Walk', 'calories': 70, 'distance': 0.64881, 'steps': 880, 
+'speed': 3.64955625, 'pace': 986.4212943696922, 'averageHeartRate': 124, 'duration': 643000, 'activeDuration': 640000, 'activityLevel': [{'minutes': 0, 'name': 'sedentary'}, 
+{'minutes': 1, 'name': 'lightly'}, {'minutes': 7, 'name': 'fairly'}, {'minutes': 3, 'name': 'very'}], 'distanceUnit': 'Kilometer', 'source': {'type': 'tracker', 'name': 'Versa 4', 
+'id': '616294CB113D', 'url': 'https://www.fitbit.com/', 'trackerFeatures': ['DISTANCE', 'STEPS', 'GPS', 'PACE', 'ELEVATION', 'CALORIES', 'HEARTRATE', 'VO2_MAX']}, 
+'logType': 'tracker', 'manualValuesSpecified': {'calories': False, 'distance': False, 'steps': False}, 'intervalWorkoutData': {'intervalSummaries': [], 'numRepeats': 0}, 
+'heartRateZones': [{'minutes': 11, 'caloriesOut': 0.0, 'name': 'Out of Range', 'min': 30, 'max': 118}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Fat Burn', 'min': 119, 
+'max': 144}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Cardio', 'min': 145, 'max': 175}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Peak', 'min': 176, 'max': 220}], 
+'activeZoneMinutes': {'totalMinutes': 7, 'minutesInHeartRateZones': [{'minutes': 0, 'zoneName': 'Out of Range', 'order': 0, 'type': 'OUT_OF_ZONE', 'minuteMultiplier': 0}, 
+{'minutes': 7, 'zoneName': 'Fat Burn', 'order': 1, 'type': 'FAT_BURN', 'minuteMultiplier': 1}, {'minutes': 0, 'zoneName': 'Cardio', 'order': 2, 'type': 'CARDIO', 
+'minuteMultiplier': 2}, {'minutes': 0, 'zoneName': 'Peak', 'order': 3, 'type': 'PEAK', 'minuteMultiplier': 2}]}, 'inProgress': False, 
+'caloriesLink': 'https://api.fitbit.com/1/user/-/activities/calories/date/2025-09-25/2025-09-25/1min/time/19:47/19:58.json', 
+'heartRateLink': 'https://api.fitbit.com/1/user/-/activities/heart/date/2025-09-25/2025-09-25/1sec/time/19:47:29/19:58:12.json',
+'tcxLink': 'https://api.fitbit.com/1/user/-/activities/3483919763666824792.tcx', 'lastModified': '2025-09-25T17:58:24.529Z', 
+'startTime': '2025-09-25T19:47:29.000+02:00', 'originalStartTime': '2025-09-25T19:47:29.000+02:00', 'originalDuration': 643000, 
+'elevationGain': 17.373, 'hasActiveZoneMinutes': True, 'cl': 6.119669615997904}, {'logId': 
+
+
+========================================================================== CARDIOSCORE/VO2MAX ========================================================================================
+2025-10-14 12:38:06,857: INFO: {'cardioScore': [{'value': {'vo2Max': '37'}, 'dateTime': '2025-09-20'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-21'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-09-22'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-23'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-24'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-09-25'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-26'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-27'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-09-28'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-29'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-09-30'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-10-01'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-02'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-03'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-10-04'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-05'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-06'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-10-07'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-08'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-09'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-10-10'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-11'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-12'},
+{'value': {'vo2Max': '37'}, 'dateTime': '2025-10-13'}, {'value': {'vo2Max': '37'}, 'dateTime': '2025-10-14'}]}
+
+
+=============================================================================== HEART RATE ==========================================================================================
+2025-10-14 14:32:35,450: INFO: {'activities-heart': [{'value': {'customHeartRateZones': [], 'heartRateZones': [{'caloriesOut': 3006.51935, 'max': 120, 'min': 30, 'minutes': 1421, 'name': 'Out of Range'},
+{'caloriesOut': 114.07947999999998, 'max': 145, 'min': 120, 'minutes': 19, 'name': 'Fat Burn'}, {'caloriesOut': 0, 'max': 177, 'min': 145, 'minutes': 0, 'name': 'Cardio'},
+{'caloriesOut': 0, 'max': 220, 'min': 177, 'minutes': 0, 'name': 'Peak'}], 'restingHeartRate': 70}, 'dateTime': '2025-09-20'}], 'activities-heart-intraday': 
+{'dataset': [{'time': '00:00:00', 'value': 112}, {'time': '00:05:00', 'value': 117}, {'time': '00:10:00', 'value': 95}, {'time': '00:15:00', 'value': 76}, 
+{'time': '00:20:00', 'value': 84}, {'time': '00:25:00', 'value': 89}, {'time': '00:30:00', 'value': 95}, {'time': '00:35:00', 'value': 80}, {'time': '00:40:00', 'value': 71}, 
+{'time': '00:45:00', 'value': 70}, {'time': '00:50:00', 'value': 70}, {'time': '00:55:00', 'value': 69}, {'time': '01:00:00', 'value': 68}, {'time': '01:05:00', 'value': 68}, 
+{'time': '01:10:00', 'value': 70}, {'time': '01:15:00', 'value': 72}, {'time': '01:20:00', 'value': 64}, {'time': '01:25:00', 'value': 61}, {'time': '01:30:00', 'value': 59}, 
+{'time': '01:35:00', 'value': 62}, {'time': '01:40:00', 'value': 62}, {'time': '01:45:00', 'value': 63}, {'time': '01:50:00', 'value': 71}, {'time': '01:55:00', 'value': 63}, 
+{'time': '02:00:00', 'value': 63}, {'time': '02:05:00', 'value': 65}, {'time': '02:10:00', 'value': 62}, {'time': '02:15:00', 'value': 63}, {'time': '02:20:00', 'value': 70}, 
+{'time': '02:25:00', 'value': 73}, {'time': '02:30:00', 'value': 73}, {'time': '02:35:00', 'value': 70}, {'time': '02:40:00', 'value': 73}, {'time': '02:45:00', 'value': 73}, 
+...
+{'time': '21:35:00', 'value': 101}, {'time': '21:40:00', 'value': 97}, {'time': '21:45:00', 'value': 83}, {'time': '21:50:00', 'value': 83}, {'time': '21:55:00', 'value': 79}, 
+{'time': '22:00:00', 'value': 85}, {'time': '22:05:00', 'value': 97}, {'time': '22:10:00', 'value': 98}, {'time': '22:15:00', 'value': 119}, {'time': '22:20:00', 'value': 127},
+{'time': '22:25:00', 'value': 129}, {'time': '22:30:00', 'value': 92}, {'time': '22:35:00', 'value': 88}, {'time': '22:40:00', 'value': 84}, {'time': '22:45:00', 'value': 84}, 
+{'time': '22:50:00', 'value': 98}, {'time': '22:55:00', 'value': 106}, {'time': '23:00:00', 'value': 110}, {'time': '23:05:00', 'value': 114}, {'time': '23:10:00', 'value': 106},
+{'time': '23:15:00', 'value': 96}, {'time': '23:20:00', 'value': 79}, {'time': '23:25:00', 'value': 76}, {'time': '23:30:00', 'value': 80}, {'time': '23:35:00', 'value': 94}, 
+{'time': '23:40:00', 'value': 91}, {'time': '23:45:00', 'value': 86}, {'time': '23:50:00', 'value': 94}, {'time': '23:55:00', 'value': 81}], 'datasetInterval': 5, 'datasetType': 'minute'}}
+
+
+================================================================================= oxygen saturation (not intraday)==================================================================================
+2025-10-14 15:25:25,540: INFO: [{'dateTime': '2025-09-20', 'value': {'avg': 97.2, 'max': 99.5, 'min': 95.2}},
+{'dateTime': '2025-09-21', 'value': {'avg': 93.8, 'max': 94.6, 'min': 92.9}}, {'dateTime': '2025-09-22', 'value': {'avg': 94.1, 'max': 95.7, 'min': 92.5}},
+{'dateTime': '2025-09-23', 'value': {'avg': 96.6, 'max': 98.6, 'min': 94.8}}, {'dateTime': '2025-09-24', 'value': {'avg': 96.1, 'max': 100, 'min': 93.3}},
+{'dateTime': '2025-09-25', 'value': {'avg': 94.3, 'max': 97.5, 'min': 91.1}}, {'dateTime': '2025-09-26', 'value': {'avg': 93.7, 'max': 96.7, 'min': 90}},
+{'dateTime': '2025-09-27', 'value': {'avg': 96.8, 'max': 100, 'min': 94}}, {'dateTime': '2025-09-28', 'value': {'avg': 94.4, 'max': 97.1, 'min': 91.7}},
+{'dateTime': '2025-09-29', 'value': {'avg': 97, 'max': 99.3, 'min': 95.3}}, {'dateTime': '2025-09-30', 'value': {'avg': 96.2, 'max': 98.8, 'min': 93.6}},
+{'dateTime': '2025-10-01', 'value': {'avg': 95.4, 'max': 98.4, 'min': 91.1}}, {'dateTime': '2025-10-02', 'value': {'avg': 96, 'max': 98.8, 'min': 93.3}},
+{'dateTime': '2025-10-03', 'value': {'avg': 95.5, 'max': 97.7, 'min': 93.8}}, {'dateTime': '2025-10-04', 'value': {'avg': 96.7, 'max': 98.9, 'min': 94.8}},
+{'dateTime': '2025-10-05', 'value': {'avg': 96.2, 'max': 98.1, 'min': 94.2}}, {'dateTime': '2025-10-06', 'value': {'avg': 96.4, 'max': 98.7, 'min': 94}},
+{'dateTime': '2025-10-07', 'value': {'avg': 96.1, 'max': 98.1, 'min': 93.6}}, {'dateTime': '2025-10-09', 'value': {'avg': 94.4, 'max': 97.6, 'min': 91}},
+{'dateTime': '2025-10-10', 'value': {'avg': 96.1, 'max': 96.1, 'min': 95.3}}, {'dateTime': '2025-10-11', 'value': {'avg': 96.4, 'max': 99, 'min': 93.3}},
+{'dateTime': '2025-10-12', 'value': {'avg': 97.5, 'max': 99.1, 'min': 95.7}}, {'dateTime': '2025-10-13', 'value': {'avg': 97.9, 'max': 99.7, 'min': 96.7}}]
+
+
+=================================================================================== Respiratory Rate ==============================================================================
+grrrr
+
+
+===================================================================================== SLEEP ======================================================================================
+2025-10-15 12:53:33,631: INFO: {'sleep': [{'dateOfSleep': '2025-09-20', 'duration': 30060000, 'efficiency': 92, 'startTime': '2025-09-20T01:24:30.000',
+'endTime': '2025-09-20T09:45:30.000', 'infoCode': 0, 'isMainSleep': True, 'levels': {'data': [{'dateTime': '2025-09-20T01:24:30.000', 'level': 'light', 'seconds': 690},
+{'dateTime': '2025-09-20T01:36:00.000', 'level': 'deep', 'seconds': 1110}, {'dateTime': '2025-09-20T01:54:30.000', 'level': 'light', 'seconds': 270},
+{'dateTime': '2025-09-20T01:59:00.000', 'level': 'deep', 'seconds': 540}, {'dateTime': '2025-09-20T02:08:00.000', 'level': 'light', 'seconds': 300},
+{'dateTime': '2025-09-20T02:13:00.000', 'level': 'deep', 'seconds': 540}, {'dateTime': '2025-09-20T02:22:00.000', 'level': 'light', 'seconds': 270},
+{'dateTime': '2025-09-20T02:26:30.000', 'level': 'rem', 'seconds': 30}, {'dateTime': '2025-09-20T02:27:00.000', 'level': 'light', 'seconds': 60},
+{'dateTime': '2025-09-20T02:28:00.000', 'level': 'rem', 'seconds': 1620}, {'dateTime': '2025-09-20T02:55:00.000', 'level': 'light', 'seconds': 1140},
+{'dateTime': '2025-09-20T03:14:00.000', 'level': 'deep', 'seconds': 600}, {'dateTime': '2025-09-20T03:24:00.000', 'level': 'light', 'seconds': 2100},
+{'dateTime': '2025-09-20T03:59:00.000', 'level': 'deep', 'seconds': 30}, {'dateTime': '2025-09-20T03:59:30.000', 'level': 'light', 'seconds': 30},
+{'dateTime': '2025-09-20T04:00:00.000', 'level': 'deep', 'seconds': 30}, {'dateTime': '2025-09-20T04:00:30.000', 'level': 'light', 'seconds': 30},
+{'dateTime': '2025-09-20T04:01:00.000', 'level': 'deep', 'seconds': 30}, {'dateTime': '2025-09-20T04:01:30.000', 'level': 'wake', 'seconds': 210},
+{'dateTime': '2025-09-20T04:05:00.000', 'level': 'light', 'seconds': 840}, {'dateTime': '2025-09-20T04:19:00.000', 'level': 'rem', 'seconds': 1800},
+{'dateTime': '2025-09-20T04:49:00.000', 'level': 'light', 'seconds': 1470}, {'dateTime': '2025-09-20T05:13:30.000', 'level': 'deep', 'seconds': 60},
+{'dateTime': '2025-09-20T05:14:30.000', 'level': 'light', 'seconds': 90}, {'dateTime': '2025-09-20T05:16:00.000', 'level': 'deep', 'seconds': 180},
+{'dateTime': '2025-09-20T05:19:00.000', 'level': 'light', 'seconds': 450}, {'dateTime': '2025-09-20T05:26:30.000', 'level': 'deep', 'seconds': 690},
+{'dateTime': '2025-09-20T05:38:00.000', 'level': 'light', 'seconds': 1110}, {'dateTime': '2025-09-20T05:56:30.000', 'level': 'rem', 'seconds': 1620},
+{'dateTime': '2025-09-20T06:23:30.000', 'level': 'light', 'seconds': 2940}, {'dateTime': '2025-09-20T07:12:30.000', 'level': 'deep', 'seconds': 60},
+{'dateTime': '2025-09-20T07:13:30.000', 'level': 'light', 'seconds': 420}, {'dateTime': '2025-09-20T07:20:30.000', 'level': 'deep', 'seconds': 210},
+{'dateTime': '2025-09-20T07:24:00.000', 'level': 'light', 'seconds': 240}, {'dateTime': '2025-09-20T07:28:00.000', 'level': 'rem', 'seconds': 1050},
+{'dateTime': '2025-09-20T07:45:30.000', 'level': 'wake', 'seconds': 330}, {'dateTime': '2025-09-20T07:51:00.000', 'level': 'light', 'seconds': 2760},
+{'dateTime': '2025-09-20T08:37:00.000', 'level': 'rem', 'seconds': 1950}, {'dateTime': '2025-09-20T09:09:30.000', 'level': 'light', 'seconds': 1440},
+{'dateTime': '2025-09-20T09:33:30.000', 'level': 'wake', 'seconds': 720}], 'shortData': [{'dateTime': '2025-09-20T01:53:30.000', 'level': 'wake', 'seconds': 30},
+{'dateTime': '2025-09-20T03:46:30.000', 'level': 'wake', 'seconds': 30}, {'dateTime': '2025-09-20T04:13:30.000', 'level': 'wake', 'seconds': 90},
+{'dateTime': '2025-09-20T05:01:30.000', 'level': 'wake', 'seconds': 30}, {'dateTime': '2025-09-20T06:00:30.000', 'level': 'wake', 'seconds': 30},
+{'dateTime': '2025-09-20T06:21:30.000', 'level': 'wake', 'seconds': 120}, {'dateTime': '2025-09-20T06:29:30.000', 'level': 'wake', 'seconds': 60},
+{'dateTime': '2025-09-20T06:47:30.000', 'level': 'wake', 'seconds': 30}, {'dateTime': '2025-09-20T07:01:30.000', 'level': 'wake', 'seconds': 30},
+{'dateTime': '2025-09-20T07:25:00.000', 'level': 'wake', 'seconds': 30}, {'dateTime': '2025-09-20T07:43:00.000', 'level': 'wake', 'seconds': 90},
+{'dateTime': '2025-09-20T08:00:00.000', 'level': 'wake', 'seconds': 60}, {'dateTime': '2025-09-20T08:23:00.000', 'level': 'wake', 'seconds': 150},
+{'dateTime': '2025-09-20T08:30:30.000', 'level': 'wake', 'seconds': 60}, {'dateTime': '2025-09-20T09:08:00.000', 'level': 'wake', 'seconds': 90},
+{'dateTime': '2025-09-20T09:29:30.000', 'level': 'wake', 'seconds': 60}, {'dateTime': '2025-09-20T09:32:30.000', 'level': 'wake', 'seconds': 30}],
+'summary': {'deep': {'count': 13, 'minutes': 67, 'thirtyDayAvgMinutes': 75}, 'light': {'count': 31, 'minutes': 266, 'thirtyDayAvgMinutes': 252},
+'rem': {'count': 8, 'minutes': 129, 'thirtyDayAvgMinutes': 91}, 'wake': {'count': 20, 'minutes': 38, 'thirtyDayAvgMinutes': 37}}}, 'logId': 4618738767250487488,
+'minutesAfterWakeup': 0, 'minutesAwake': 38, 'minutesAsleep': 463, 'minutesToFallAsleep': 0, 'logType': 'auto_detected', 'timeInBed': 501, 'type': 'stages'}, {'dateOfSleep': 
+............. , 'pagination': {'afterDate': '2025-09-20', 'limit': 3,
+'next': 'https://api.fitbit.com/1.2/user/-/sleep/list.json?offset=3&limit=3&sort=asc&afterDate=2025-09-20', 'offset': 0, 'previous': '', 'sort': 'asc'}}
+
+
+=============================================================================== TEMPERATURE ====================================================================================
+2025-10-15 13:00:45,198: INFO: {'tempSkin': [{'value': {'nightlyRelative': 0.1}, 'dateTime': '2025-09-20', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 0.9}, 'dateTime': '2025-09-21', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.5},
+'dateTime': '2025-09-22', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.5}, 'dateTime': '2025-09-23', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 0.3}, 'dateTime': '2025-09-24', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': -0.1},
+'dateTime': '2025-09-25', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': -0.9}, 'dateTime': '2025-09-26', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': -0.1}, 'dateTime': '2025-09-27', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': -0.7},
+'dateTime': '2025-09-28', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': -0.5}, 'dateTime': '2025-09-29', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 0.2}, 'dateTime': '2025-09-30', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0},
+'dateTime': '2025-10-01', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.2}, 'dateTime': '2025-10-02', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 0.1}, 'dateTime': '2025-10-03', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.3},
+'dateTime': '2025-10-04', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.2}, 'dateTime': '2025-10-05', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': -0.5}, 'dateTime': '2025-10-06', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.4},
+'dateTime': '2025-10-07', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.1}, 'dateTime': '2025-10-09', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 1}, 'dateTime': '2025-10-10', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.1},
+'dateTime': '2025-10-11', 'logType': 'other_sensors'}, {'value': {'nightlyRelative': 0.4}, 'dateTime': '2025-10-12', 'logType': 'other_sensors'},
+{'value': {'nightlyRelative': 0.6}, 'dateTime': '2025-10-13', 'logType': 'other_sensors'}]}
+
+
+===================================================================================== WEIGHT =================================================================================
+2025-10-15 13:03:19,602: INFO: {'weight': [{'bmi': 24.31, 'date': '2025-10-13', 'logId': 1760350834000, 'source': 'API', 'time': '10:20:34', 'weight': 84.1}]}
