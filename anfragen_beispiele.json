@@ -1,11 +1,11 @@
 ============================================================================= ACTIVITIES ====================================================================================
-
 2025-10-14 12:15:59,975: INFO: {'pagination': {'afterDate': '2025-09-25', 'limit': 100, 'next': '', 'offset': 0, 'previous': '', 'sort': 'asc'}, 
 'activities': [{'logId': 3483919763666824792, 'activityTypeId': 90013, 'activityName': 'Walk', 'calories': 70, 'distance': 0.64881, 'steps': 880, 
 'speed': 3.64955625, 'pace': 986.4212943696922, 'averageHeartRate': 124, 'duration': 643000, 'activeDuration': 640000, 'activityLevel': [{'minutes': 0, 'name': 'sedentary'}, 
 {'minutes': 1, 'name': 'lightly'}, {'minutes': 7, 'name': 'fairly'}, {'minutes': 3, 'name': 'very'}], 'distanceUnit': 'Kilometer', 'source': {'type': 'tracker', 'name': 'Versa 4', 
 'id': '616294CB113D', 'url': 'https://www.fitbit.com/', 'trackerFeatures': ['DISTANCE', 'STEPS', 'GPS', 'PACE', 'ELEVATION', 'CALORIES', 'HEARTRATE', 'VO2_MAX']}, 
 'logType': 'tracker', 'manualValuesSpecified': {'calories': False, 'distance': False, 'steps': False}, 'intervalWorkoutData': {'intervalSummaries': [], 'numRepeats': 0}, 
+
 'heartRateZones': [{'minutes': 11, 'caloriesOut': 0.0, 'name': 'Out of Range', 'min': 30, 'max': 118}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Fat Burn', 'min': 119, 
 'max': 144}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Cardio', 'min': 145, 'max': 175}, {'minutes': 0, 'caloriesOut': 0.0, 'name': 'Peak', 'min': 176, 'max': 220}], 
 'activeZoneMinutes': {'totalMinutes': 7, 'minutesInHeartRateZones': [{'minutes': 0, 'zoneName': 'Out of Range', 'order': 0, 'type': 'OUT_OF_ZONE', 'minuteMultiplier': 0}, 

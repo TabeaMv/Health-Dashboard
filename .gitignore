@@ -1,6 +1,6 @@
 tokens.json
 fitbit.log
-historical_data/
+historical_data.db
 fitbit-env/
 __pycache__/
 .env
